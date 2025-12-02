@@ -1,0 +1,686 @@
+{
+  "version": "6",
+  "id": "vista-pitanga-bot",
+  "name": "Condomínio Vista de Pitanga",
+  "groups": [
+    {
+      "id": "group-welcome",
+      "title": "Boas-vindas",
+      "blocks": [
+        {
+          "id": "block-welcome-text",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  { "text": "🏢 Olá! Bem-vindo ao " },
+                  { "text": "Condomínio Vista de Pitanga", "bold": true },
+                  { "text": "!" }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "Como posso ajudá-lo hoje?" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-menu",
+          "type": "choice input",
+          "options": {
+            "buttonLabel": "Enviar",
+            "variableId": "var-menu-choice"
+          },
+          "items": [
+            {
+              "id": "item-piscina",
+              "content": "🏊 Reservar pulseira da piscina"
+            },
+            {
+              "id": "item-porteiro",
+              "content": "🚪 Falar com Porteiro"
+            },
+            {
+              "id": "item-sindico",
+              "content": "👔 Falar com Síndico"
+            }
+          ]
+        }
+      ],
+      "graphCoordinates": { "x": 0, "y": 0 }
+    },
+    {
+      "id": "group-piscina",
+      "title": "Reserva Piscina",
+      "blocks": [
+        {
+          "id": "block-piscina-intro",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  { "text": "🏊 " },
+                  { "text": "Reserva de Pulseiras da Piscina", "bold": true }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "⏰ Horário de funcionamento: 8h às 22h" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "🎫 Limite: 6 pulseiras por mês" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "Vamos fazer sua reserva!  📝" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-ask-name",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [{ "text": "👤 Qual é o seu nome completo?" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-input-name",
+          "type": "text input",
+          "options": {
+            "variableId": "var-nome",
+            "placeholder": "Digite seu nome completo"
+          }
+        },
+        {
+          "id": "block-ask-bloco",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [{ "text": "🏠 Qual é o seu Bloco?" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-input-bloco",
+          "type": "text input",
+          "options": {
+            "variableId": "var-bloco",
+            "placeholder": "Ex: A, B, C..."
+          }
+        },
+        {
+          "id": "block-ask-apto",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [{ "text": "🚪 Qual é o número do seu Apartamento?" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-input-apto",
+          "type": "number input",
+          "options": {
+            "variableId": "var-apartamento",
+            "placeholder": "Ex: 101, 202..."
+          }
+        },
+        {
+          "id": "block-ask-date",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [{ "text": "📅 Para qual data deseja reservar?" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-input-date",
+          "type": "date input",
+          "options": {
+            "variableId": "var-data-reserva",
+            "format": "dd/MM/yyyy"
+          }
+        },
+        {
+          "id": "block-ask-qty",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [{ "text": "🎫 Quantas pulseiras deseja reservar?  (máximo 6)" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-input-qty",
+          "type": "choice input",
+          "options": {
+            "variableId": "var-quantidade"
+          },
+          "items": [
+            { "id": "qty-1", "content": "1 pulseira" },
+            { "id": "qty-2", "content": "2 pulseiras" },
+            { "id": "qty-3", "content": "3 pulseiras" },
+            { "id": "qty-4", "content": "4 pulseiras" },
+            { "id": "qty-5", "content": "5 pulseiras" },
+            { "id": "qty-6", "content": "6 pulseiras" }
+          ]
+        },
+        {
+          "id": "block-ask-used",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [{ "text": "📊 Quantas pulseiras você já usou este mês?" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "(Para controle do limite mensal de 6 pulseiras)" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-input-used",
+          "type": "choice input",
+          "options": {
+            "variableId": "var-ja-usadas"
+          },
+          "items": [
+            { "id": "used-0", "content": "0 - Ainda não usei nenhuma" },
+            { "id": "used-1", "content": "1 pulseira" },
+            { "id": "used-2", "content": "2 pulseiras" },
+            { "id": "used-3", "content": "3 pulseiras" },
+            { "id": "used-4", "content": "4 pulseiras" },
+            { "id": "used-5", "content": "5 pulseiras" },
+            { "id": "used-6", "content": "6 pulseiras (limite atingido)" }
+          ]
+        }
+      ],
+      "graphCoordinates": { "x": 400, "y": 0 }
+    },
+    {
+      "id": "group-validation",
+      "title": "Validação do Limite",
+      "blocks": [
+        {
+          "id": "block-condition",
+          "type": "condition",
+          "items": [
+            {
+              "id": "condition-exceeded",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "comparison-1",
+                    "variableId": "var-ja-usadas",
+                    "comparisonOperator": "Equal to",
+                    "value": "6 pulseiras (limite atingido)"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "graphCoordinates": { "x": 800, "y": 0 }
+    },
+    {
+      "id": "group-limit-exceeded",
+      "title": "Limite Excedido",
+      "blocks": [
+        {
+          "id": "block-limit-msg",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  { "text": "❌ Desculpe, você já atingiu o limite de 6 pulseiras este mês.", "bold": true }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "📅 Seu limite será renovado no próximo mês." }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "Para mais informações, entre em contato com a administração." }]
+              }
+            ]
+          }
+        }
+      ],
+      "graphCoordinates": { "x": 1200, "y": -200 }
+    },
+    {
+      "id": "group-success",
+      "title": "Reserva Confirmada",
+      "blocks": [
+        {
+          "id": "block-webhook",
+          "type": "webhook",
+          "options": {
+            "url": "SUA_URL_GOOGLE_SHEETS_AQUI",
+            "method": "POST",
+            "body": {
+              "nome": "{{var-nome}}",
+              "bloco": "{{var-bloco}}",
+              "apartamento": "{{var-apartamento}}",
+              "data_reserva": "{{var-data-reserva}}",
+              "quantidade": "{{var-quantidade}}",
+              "timestamp": "{{timestamp}}"
+            }
+          }
+        },
+        {
+          "id": "block-receipt",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [{ "text": "✅ RESERVA CONFIRMADA!", "bold": true }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "📋 Recibo de Reserva - Piscina", "bold": true }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "━━━━━━━━━━━━━━━━━━━━━━━━━━━" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "🏢 Condomínio Vista de Pitanga", "bold": true }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "━━━━━━━━━━━━━━━━━━━━━━━━━━━" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "👤 Nome: {{var-nome}}" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "🏠 Bloco: {{var-bloco}} | Apto: {{var-apartamento}}" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "📅 Data: {{var-data-reserva}}" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "🎫 Pulseiras: {{var-quantidade}}" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "⏰ Horário da Piscina: 8h às 22h" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "━━━━━━━━━━━━━━━━━━━━━━━━━━━" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "⚠️ Retire suas pulseiras na portaria no dia da reserva." }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "━━━━━━━━━━━━━━━━━━━━━━━━━━━" }]
+              }
+            ]
+          }
+        }
+      ],
+      "graphCoordinates": { "x": 1200, "y": 200 }
+    },
+    {
+      "id": "group-porteiro",
+      "title": "Falar com Porteiro",
+      "blocks": [
+        {
+          "id": "block-porteiro-msg",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  { "text": "🚪 " },
+                  { "text": "Portaria - Condomínio Vista de Pitanga", "bold": true }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "📞 Telefone: (00) 00000-0000" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "Clique no botão abaixo para falar pelo WhatsApp:" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-porteiro-btn",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "type": "a",
+                    "url": "https://wa.me/5500000000000? text=Olá!  Sou morador do Condomínio Vista de Pitanga.",
+                    "children": [{ "text": "📱 Abrir WhatsApp da Portaria" }]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "graphCoordinates": { "x": 400, "y": 400 }
+    },
+    {
+      "id": "group-sindico",
+      "title": "Falar com Síndico",
+      "blocks": [
+        {
+          "id": "block-sindico-msg",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  { "text": "👔 " },
+                  { "text": "Síndico - Condomínio Vista de Pitanga", "bold": true }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "📞 Telefone: (00) 00000-0000" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "Clique no botão abaixo para falar pelo WhatsApp:" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-sindico-btn",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "type": "a",
+                    "url": "https://wa.me/5500000000000?text=Olá! Sou morador do Condomínio Vista de Pitanga e gostaria de falar com o síndico.",
+                    "children": [{ "text": "📱 Abrir WhatsApp do Síndico" }]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "graphCoordinates": { "x": 400, "y": 600 }
+    },
+    {
+      "id": "group-back-menu",
+      "title": "Voltar ao Menu",
+      "blocks": [
+        {
+          "id": "block-back-question",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "Posso ajudá-lo com mais alguma coisa?" }]
+              }
+            ]
+          }
+        },
+        {
+          "id": "block-back-choice",
+          "type": "choice input",
+          "options": {
+            "variableId": "var-voltar"
+          },
+          "items": [
+            { "id": "back-yes", "content": "✅ Sim, voltar ao menu" },
+            { "id": "back-no", "content": "❌ Não, obrigado" }
+          ]
+        }
+      ],
+      "graphCoordinates": { "x": 1600, "y": 200 }
+    },
+    {
+      "id": "group-goodbye",
+      "title": "Despedida",
+      "blocks": [
+        {
+          "id": "block-goodbye",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [{ "text": "😊 Obrigado por usar nosso atendimento!" }]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "" }]
+              },
+              {
+                "type": "p",
+                "children": [
+                  { "text": "🏢 Condomínio Vista de Pitanga", "bold": true }
+                ]
+              },
+              {
+                "type": "p",
+                "children": [{ "text": "Tenha um ótimo dia!  🌟" }]
+              }
+            ]
+          }
+        }
+      ],
+      "graphCoordinates": { "x": 2000, "y": 400 }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-welcome-piscina",
+      "from": { "groupId": "group-welcome", "blockId": "block-menu", "itemId": "item-piscina" },
+      "to": { "groupId": "group-piscina" }
+    },
+    {
+      "id": "edge-welcome-porteiro",
+      "from": { "groupId": "group-welcome", "blockId": "block-menu", "itemId": "item-porteiro" },
+      "to": { "groupId": "group-porteiro" }
+    },
+    {
+      "id": "edge-welcome-sindico",
+      "from": { "groupId": "group-welcome", "blockId": "block-menu", "itemId": "item-sindico" },
+      "to": { "groupId": "group-sindico" }
+    },
+    {
+      "id": "edge-piscina-validation",
+      "from": { "groupId": "group-piscina" },
+      "to": { "groupId": "group-validation" }
+    },
+    {
+      "id": "edge-validation-exceeded",
+      "from": { "groupId": "group-validation", "blockId": "block-condition", "itemId": "condition-exceeded" },
+      "to": { "groupId": "group-limit-exceeded" }
+    },
+    {
+      "id": "edge-validation-success",
+      "from": { "groupId": "group-validation" },
+      "to": { "groupId": "group-success" }
+    },
+    {
+      "id": "edge-success-back",
+      "from": { "groupId": "group-success" },
+      "to": { "groupId": "group-back-menu" }
+    },
+    {
+      "id": "edge-exceeded-back",
+      "from": { "groupId": "group-limit-exceeded" },
+      "to": { "groupId": "group-back-menu" }
+    },
+    {
+      "id": "edge-porteiro-back",
+      "from": { "groupId": "group-porteiro" },
+      "to": { "groupId": "group-back-menu" }
+    },
+    {
+      "id": "edge-sindico-back",
+      "from": { "groupId": "group-sindico" },
+      "to": { "groupId": "group-back-menu" }
+    },
+    {
+      "id": "edge-back-yes",
+      "from": { "groupId": "group-back-menu", "blockId": "block-back-choice", "itemId": "back-yes" },
+      "to": { "groupId": "group-welcome" }
+    },
+    {
+      "id": "edge-back-no",
+      "from": { "groupId": "group-back-menu", "blockId": "block-back-choice", "itemId": "back-no" },
+      "to": { "groupId": "group-goodbye" }
+    }
+  ],
+  "variables": [
+    { "id": "var-menu-choice", "name": "menu_choice" },
+    { "id": "var-nome", "name": "nome" },
+    { "id": "var-bloco", "name": "bloco" },
+    { "id": "var-apartamento", "name": "apartamento" },
+    { "id": "var-data-reserva", "name": "data_reserva" },
+    { "id": "var-quantidade", "name": "quantidade" },
+    { "id": "var-ja-usadas", "name": "pulseiras_ja_usadas" },
+    { "id": "var-voltar", "name": "voltar_menu" }
+  ],
+  "settings": {
+    "general": {
+      "isBrandingEnabled": false,
+      "isInputPrefillEnabled": true
+    },
+    "typingEmulation": {
+      "enabled": true,
+      "speed": 300,
+      "maxDelay": 1. 5
+    }
+  },
+  "theme": {
+    "chat": {
+      "inputs": {
+        "backgroundColor": "#ffffff",
+        "color": "#303235",
+        "placeholderColor": "#9095A0"
+      },
+      "buttons": {
+        "backgroundColor": "#0042DA",
+        "color": "#ffffff"
+      },
+      "hostBubbles": {
+        "backgroundColor": "#F7F8FF",
+        "color": "#303235"
+      },
+      "guestBubbles": {
+        "backgroundColor": "#0042DA",
+        "color": "#ffffff"
+      }
+    }
+  }
+}
