@@ -90,7 +90,7 @@
               },
               {
                 "type": "p",
-                "children": [{ "text": "Vamos fazer sua reserva!  📝" }]
+                "children": [{ "text": "Vamos fazer sua reserva! 📝" }]
               }
             ]
           }
@@ -182,7 +182,7 @@
             "richText": [
               {
                 "type": "p",
-                "children": [{ "text": "🎫 Quantas pulseiras deseja reservar?  (máximo 6)" }]
+                "children": [{ "text": "🎫 Quantas pulseiras deseja reservar? (máximo 6)" }]
               }
             ]
           }
@@ -444,7 +444,7 @@
                 "children": [
                   {
                     "type": "a",
-                    "url": "https://wa.me/5500000000000? text=Olá!  Sou morador do Condomínio Vista de Pitanga.",
+                    "url": "https://wa.me/5500000000000?text=Olá! Sou morador do Condomínio Vista de Pitanga.",
                     "children": [{ "text": "📱 Abrir WhatsApp da Portaria" }]
                   }
                 ]
@@ -659,7 +659,7 @@
     "typingEmulation": {
       "enabled": true,
       "speed": 300,
-      "maxDelay": 1. 5
+      "maxDelay": 1.5
     }
   },
   "theme": {
